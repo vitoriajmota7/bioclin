@@ -1,10 +1,8 @@
 // COLE TUDO ISSO NO SEU ARQUIVO
 
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 export default function Lipidograma() {
-  const location = useLocation();
 
   const [form, setForm] = useState({
     sexo: "",
