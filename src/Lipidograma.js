@@ -1,10 +1,9 @@
 // COLE TUDO ISSO NO SEU ARQUIVO
 
 import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function Lipidograma() {
-  const navigate = useNavigate();
   const location = useLocation();
 
   const [form, setForm] = useState({
@@ -21,10 +20,7 @@ export default function Lipidograma() {
   const [resultado, setResultado] = useState(null);
   const [erro, setErro] = useState("");
 
-  function getNavStyle(path) {
-    const ativo = location.pathname === path;
-    return ativo ? { ...styles.navLink, ...styles.activeLink } : styles.navLink;
-  }
+
 
   function handleChange(e) {
     const { name, value } = e.target;
