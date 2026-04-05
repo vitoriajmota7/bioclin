@@ -56,6 +56,13 @@ export default function Lipidograma() {
     }
 
     return "Referência informativa";
+    if (tipo === "vldl") {
+  return "Satisfatório: abaixo de 30 mg/dL | Alterado: 30 mg/dL ou mais";
+}
+
+if (tipo === "tyg") {
+  return "Índice informativo calculado com triglicerídeos e glicose em jejum; a interpretação clínica pode variar conforme população e contexto.";
+}
   }
 
   function getStatusConfig(tipo, valor) {
@@ -182,6 +189,32 @@ export default function Lipidograma() {
       corTexto: "#075985",
       corBorda: "#7dd3fc",
     };
+    if (tipo === "vldl") {
+  if (valor < 30) {
+    return {
+      status: "Satisfatório",
+      corFundo: "#dcfce7",
+      corTexto: "#166534",
+      corBorda: "#86efac",
+    };
+  }
+
+  return {
+    status: "Alterado",
+    corFundo: "#fee2e2",
+    corTexto: "#991b1b",
+    corBorda: "#fca5a5",
+  };
+}
+
+if (tipo === "tyg") {
+  return {
+    status: "Informativo",
+    corFundo: "#e0f2fe",
+    corTexto: "#075985",
+    corBorda: "#7dd3fc",
+  };
+}
   }
 
   function calcularIMC(peso, alturaCm) {
@@ -543,6 +576,18 @@ export default function Lipidograma() {
                   style={styles.input}
                 />
               </div>
+              <div style={styles.field}>
+  <label style={styles.label}>Glicose (mg/dL)</label>
+  <input
+    type="number"
+    step="0.1"
+    name="glicose"
+    value={form.glicose}
+    onChange={handleChange}
+    placeholder="Ex: 95"
+    style={styles.input}
+  />
+</div>
             </div>
 
             <button type="submit" style={styles.button}>
