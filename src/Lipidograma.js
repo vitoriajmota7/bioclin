@@ -6,14 +6,15 @@ export default function Lipidograma() {
   const location = useLocation();
 
   const [form, setForm] = useState({
-    sexo: "",
-    idade: "",
-    peso: "",
-    altura: "",
-    colesterolTotal: "",
-    hdl: "",
-    triglicerideos: "",
-  });
+  sexo: "",
+  idade: "",
+  peso: "",
+  altura: "",
+  colesterolTotal: "",
+  hdl: "",
+  triglicerideos: "",
+  glicose: "",
+});
 
   const [resultado, setResultado] = useState(null);
   const [erro, setErro] = useState("");
